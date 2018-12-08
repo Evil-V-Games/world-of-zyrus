@@ -125,27 +125,7 @@ def start():
         input("Press enter or return to continue.")
         clear()
         print("You sleep the night on the dirt trail and walk to the nearby village of Dragontail in the morning. You can do many things in this village.")
-        while True:
-            print("1.) Shop")
-            print("2.) Fight")
-            print("3.) Leave")
-            print("4.) Gamble")
-            option = input("-> ")
-            if option == "1":
-                shop("Dragontale")
-            elif option == "2":
-                fight("Dragontale")
-                input()
-            elif option == "3":
-                break
-            elif option == "4":
-                gamble("Dragontale")
-            else:
-                print("Invalid option.")
-                sys.exit()
-            clear()
-
-        print("You leave the village.")
+        village("Dragontail")
 
     elif option == "N" or option == "n":
         print("The wizard walks away silently, badly hiding his disappointement.")
@@ -153,6 +133,29 @@ def start():
     else:
         print("Invalid option")
 
+def village(name):
+    while True:
+            print("1.) Shop")
+            print("2.) Fight")
+            print("3.) Leave")
+            print("4.) Gamble")
+            option = input("-> ")
+            if option == "1":
+                shop(name)
+            elif option == "2":
+                fight(name)
+                input()
+            elif option == "3":
+                break
+            elif option == "4":
+                gamble(name)
+            else:
+                print("Invalid option.")
+                sys.exit()
+            clear()
+
+        print("You leave the village.")
+        
 def shop(town):
     clear()
     print("Clerk: Welcome to the " + town + " store.")
