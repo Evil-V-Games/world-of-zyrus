@@ -199,25 +199,29 @@ def fight(town):
 
 def gamble(town):
     print("Welcome to the " + town + " casino.")
-    if player.gold <= 0:
-        print("You do not have enough money to gamble.")
-    print("You bet half of your money on a coin flip. Someone else bets as much as you do.")
-    result = random.randint(0, 1)
-    if result == 0:
-        print("You lose.")
-        player.gold -= player.gold / 2
-    else:
-        print("You win.")
-        player.gold += player.gold
-    print("Play again? (Y / N)")
-    option = input("-> ")
-    if option == "y" or option == "Y":
-        clear()
-        gamble(town)
-    elif option == "n" or option == "N":
-        print("Goodbye.")
-        input("Press enter or return to continue.")
-        clear()
+    while True:
+        if player.gold <= 0:
+            print("You do not have enough money to gamble.")
+        print("You bet half of your money on a coin flip. Someone else bets as much as you do.")
+        result = random.randint(0, 1)
+        if result == 0:
+            print("You lose.")
+            player.gold -= player.gold / 2
+        else:
+            print("You win.")
+            player.gold += player.gold
+        print("Play again? (Y / N)")
+        option = input("-> ")
+        if option == "y" or option == "Y":
+            gamble(town)
+        elif option == "n" or option == "N":
+            print("Goodbye.")
+            input("Press enter or return to continue.")
+            clear()
+            return
+        else:
+            print("Invalid option")
+            sys.exit()
 
 def encounter(monster):
     input("Press enter or return to continue.")
@@ -310,3 +314,4 @@ def encounter(monster):
 if __name__ == "__main__":
     main()
     input()
+    
