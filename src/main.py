@@ -37,8 +37,10 @@ class ArenaFighter:
         self.goldgain = (player.gold + 10) * 4
 
 def clear():
-    os.system("cls")
-    os.system("clear")
+    if sys.platform == "linux":
+        os.system("clear")
+    else:
+        os.system("cls")
 
 def main():
     clear()
