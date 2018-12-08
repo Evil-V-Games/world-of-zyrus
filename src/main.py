@@ -38,6 +38,7 @@ class ArenaFighter:
 
 def clear():
     os.system("cls")
+    os.system("clear")
 
 def main():
     clear()
@@ -209,6 +210,7 @@ def gamble(town):
     print("Play again? (Y / N)")
     option = input("-> ")
     if option == "y" or option == "Y":
+        clear()
         gamble(town)
     elif option == "n" or option == "N":
         print("Goodbye.")
